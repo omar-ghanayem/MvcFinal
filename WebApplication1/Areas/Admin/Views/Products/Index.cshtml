@@ -1,0 +1,31 @@
+﻿@model List<Product>
+<div class="card-body table-responsive p-0">
+    <table class="table table-hover text-nowrap">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Category Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    @foreach (var category in ViewBag.Categories)
+                    {
+                        if (category.Id == item.CategoryId)
+                        {
+                            <td>@category.Name</td>
+                        }
+                    }
+                    <td><a href="/admin/products/Edit/@item.Id" type="button" class="btn btn-block btn-outline-primary ">Edit</a></td>
+                    <td><a href="/admin/products/Delete/@item.Id" onclick="return confirm('Are you sure you wanna delete ?')" type="button" class="btn btn-block btn-outline-danger ">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

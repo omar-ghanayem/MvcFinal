@@ -1,0 +1,11 @@
+﻿<h1>Edit Page</h1>
+
+<form method="post" action="/admin/categories/Update/@Model.Id">
+    <div class="mb-3">
+        <input type="text" name="Name" placeholder="Category Name..." class="form-control" value="@Model.Name" />
+    </div>
+    <div class="mb-3">
+        <textarea name="Description" placeholder="Category Description...">@Model.Description</textarea>
+    </div>
+    <button type="submit" class="btn btn-outline-dark">Edit</button>
+</form>

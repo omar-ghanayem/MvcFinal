@@ -1,0 +1,46 @@
+﻿@model Product
+<h1>Create Product</h1>
+
+<form asp-area="admin" asp-controller="Products" asp-action="add" enctype="multipart/form-data">
+    <div class="form-group">
+        <div class="mb-3">
+            <label asp-for="Name">Product Name</label>
+            <input asp-for="Name" type="text" name="Name" placeholder="Product Name..." class="form-control" value="@Model.Name" />
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Description">Product Description</label>
+            <br />
+            <textarea asp-for="Description" placeholder="Product Description..." value="@Model.Description"></textarea>
+            <span class="text-danger" asp-validation-for="Description"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Price">Product Price</label>
+            <input asp-for="Price"  placeholder="Product Price..." class="form-control" value="@Model.Price" />
+            <span class="text-danger" asp-validation-for="Price"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Quantity">Product Quantity</label>
+            <br />
+            <input asp-for="Quantity" placeholder="Product Quantity..." class="form-control" value="@Model.Quantity" />
+            <span class="text-danger" asp-validation-for="Quantity"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Image">Product Image</label>
+            <input asp-for="Image" type="file" placeholder="Product Image..." class="form-control" value="@Model.Image" />
+            <span class="text-danger" asp-validation-for="Image"></span>
+        </div>
+
+
+        <label>Category</label>
+        <select class="form-control" name="CategoryId" value="@Model.CategoryId">
+            @foreach(var item in ViewBag.Categories)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+         </select>
+
+        <button type="submit" class="btn btn-outline-dark">Create</button>
+    </div>
+
+</form>

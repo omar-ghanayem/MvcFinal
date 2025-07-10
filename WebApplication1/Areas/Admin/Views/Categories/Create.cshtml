@@ -1,0 +1,27 @@
+﻿@model Category
+<h1>Create Category</h1>
+
+<form asp-area="admin" asp-controller="Categories" asp-action="add">
+    <div class="form-group">
+        <div class="mb-3">
+            <label asp-for="Name">Category Name</label>
+            <input asp-for="Name" placeholder="Product Name..." value="@Model.Name" class="form-control" />
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Description">Category Description</label>
+            <br />
+            <textarea asp-for="Description" placeholder="Product Description..." value="@Model.Description"></textarea>
+            <span class="text-danger" asp-validation-for="Description"></span>
+        </div>
+        <button type="submit" class="btn btn-outline-dark">Create</button>
+    </div>
+
+</form>
+
+
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>

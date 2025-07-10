@@ -1,0 +1,36 @@
+﻿<h1>Edit Page</h1>
+
+<form method="post" action="/admin/products/Update/@Model.Id" enctype="multipart/form-data">
+    <div class="mb-3">
+        <input type="text" name="Name" placeholder="Product Name..." class="form-control" value="@Model.Name" />
+    </div>
+    <div class="mb-3">
+        <textarea name="Description" placeholder="Product Description...">@Model.Description</textarea>
+    </div>
+    <div class="mb-3">
+        <textarea name="Price" placeholder="Product Price...">@Model.Price</textarea>
+    </div>
+    <div class="mb-3">
+        <textarea name="Quantity" placeholder="Product Quantity...">@Model.Quantity</textarea>
+    </div>
+    <div class="mb-3">
+        <label>Product Image</label>
+        <br />
+        <img src="/img/@Model.Image" width="300px"/>
+        <input type="file" name="Image" placeholder="Product Image..." class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Category</label>
+        <select class="form-control" name="CategoryId" id="CategoryId">
+            @foreach (var item in ViewBag.Categories)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+        <script>
+            document.getElementById("CategoryId").value = @Model.CategoryId;
+        </script>
+    </div>
+    <button type="submit" class="btn btn-outline-dark">Edit</button>
+</form>
